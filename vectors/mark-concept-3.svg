@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="c3Grad" x1="40" y1="170" x2="160" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+
+    <linearGradient id="c3Flame" x1="40" y1="160" x2="10" y2="190" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Protective Orbit Ring (Subtle) -->
+  <circle cx="100" cy="100" r="88" stroke="#1E293B" stroke-width="2" stroke-dasharray="6 6" opacity="0.4"/>
+
+  <!-- Minimalist Monoline Rocket Llama Profile -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    
+    <!-- Rocket Thruster Trails -->
+    <path d="M 52 148 L 28 172" stroke="url(#c3Flame)" stroke-width="4.5"/>
+    <path d="M 64 160 L 44 180" stroke="url(#c3Flame)" stroke-width="3"/>
+    <path d="M 40 136 L 24 152" stroke="url(#c3Flame)" stroke-width="3"/>
+
+    <!-- Aerodynamic Stabilizer Fin -->
+    <path d="M 56 122 L 40 138 C 38 140, 40 144, 44 143 L 74 136" stroke="#2563EB" stroke-width="5" fill="#0F172A"/>
+
+    <!-- Llama-Rocket Fuselage Contour -->
+    <path d="
+      M 74 136
+      C 62 118, 68 96, 80 78
+      L 104 46
+      C 108 40, 114 38, 120 40
+      C 126 42, 130 48, 131 54
+      C 132 60, 128 66, 122 70
+      L 112 78
+      C 104 86, 96 102, 92 120
+      C 90 126, 85 130, 78 132
+      Z
+    " stroke="url(#c3Grad)" stroke-width="5.5" fill="#0F172A"/>
+
+    <!-- Sleek Alert Ears -->
+    <!-- Ear 1 -->
+    <path d="M 112 40 L 126 14 C 128 10, 134 12, 133 17 L 122 40" stroke="url(#c3Grad)" stroke-width="5" fill="#1E293B"/>
+    <!-- Ear 2 (Forward Winglet) -->
+    <path d="M 120 43 L 138 20 C 140 16, 145 19, 143 24 L 128 48" stroke="#38BDF8" stroke-width="4.5" fill="#2563EB"/>
+
+    <!-- Porthole Eye -->
+    <circle cx="120" cy="56" r="3.5" fill="#38BDF8"/>
+
+    <!-- Propulsion Exhaust Nozzle Band -->
+    <line x1="68" y1="134" x2="80" y2="126" stroke="#06B6D4" stroke-width="4"/>
+
+  </g>
+</svg>

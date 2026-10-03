@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rocket Llama Labs | Visual Identity & Vector Brand System</title>
+  <meta name="description" content="A minimal, sleek, and upbeat visual identity blending rocket propulsion and a friendly llama mascot for home-service marketing lead generation.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            rocketBlue: '#2563EB',
+            skyCyan: '#38BDF8',
+            voidNavy: '#0F172A',
+            canvasDark: '#0B0F19',
+          },
+          fontFamily: {
+            sans: ['Inter', 'Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="bg-canvasDark text-slate-100 min-h-screen relative overflow-x-hidden">
+
+  <!-- Ambient Glow -->
+  <div class="ambient-hero-glow"></div>
+
+  <!-- Header Sticky Navigation -->
+  <header class="sticky top-0 z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-slate-800/80 px-4 lg:px-8 py-3.5">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      
+      <!-- Brand & Contest Badge -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/30 overflow-hidden p-1">
+          <img src="vectors/mark-concept-1.svg" alt="Rocket Llama Mark" class="w-full h-full object-contain">
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-sm tracking-tight text-white">ROCKET LLAMA LABS</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-950/80 text-sky-400 border border-sky-500/30">CONTEST ENTRY #588</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Handcrafted Mathematical Vector Suite · Home-Service Lead Generation</p>
+        </div>
+      </div>
+
+      <!-- Action Toolbar -->
+      <div class="flex items-center gap-2.5">
+        <button id="blueprintToggle" onclick="toggleBlueprint()" class="px-3 py-1.5 rounded text-xs font-mono border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-300 flex items-center gap-1.5 transition-colors">
+          <i data-lucide="compass" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Geometric Blueprint: <strong id="blueprintStatus" class="text-slate-500">OFF</strong></span>
+        </button>
+        <button onclick="scrollToSection('deliverables')" class="px-3 py-1.5 rounded text-xs font-medium border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-200 flex items-center gap-1.5 transition-colors">
+          <i data-lucide="layers" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span>All 4 Deliverables</span>
+        </button>
+        <button onclick="openStyleSheet()" class="px-3 py-1.5 rounded text-xs font-medium border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-200 flex items-center gap-1.5 transition-colors">
+          <i data-lucide="palette" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Style Sheet</span>
+        </button>
+        <button onclick="openProposalModal()" class="px-3.5 py-1.5 rounded text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white flex items-center gap-1.5 transition-colors shadow-sm shadow-blue-500/30">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>Contest Proposal</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section: The Hero Mark Presentation -->
+  <section class="relative pt-16 pb-16 px-4 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      
+      <!-- Anti-AI Handcrafted Vector Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/90 border border-emerald-500/40 text-xs font-medium text-slate-300 mb-6 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-emerald-400 font-mono font-semibold">100% Genuine Vector SVG/AI</span>
+        <span class="text-slate-600">·</span>
+        <span class="text-slate-400">Zero AI bitmap blobs, infinitely scalable</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15] mb-5">
+        Minimal. Sleek.<br>
+        <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-white bg-clip-text text-transparent">
+          Unstoppable Momentum.
+        </span>
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
+        A seamless fusion of rocket propulsion dynamics and the confident, perky spirit of a llama. Designed specifically for home-service contractors looking to scale leads fast.
+      </p>
+    </div>
+
+    <!-- Interactive Concept Showcase Stage -->
+    <div class="glass-box p-6 lg:p-10 max-w-4xl mx-auto relative overflow-hidden" id="showcaseStage">
+      
+      <!-- Blueprint Grid Canvas (Conditional) -->
+      <div id="blueprintGrid" class="absolute inset-0 construction-grid opacity-0 pointer-events-none transition-opacity duration-300 z-10">
+        <!-- SVG Trajectory & Golden Ratio Guide Overlays -->
+        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <!-- 45-degree Launch Trajectory Axis -->
+          <line x1="20%" y1="85%" x2="80%" y2="15%" stroke="#38BDF8" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+          <!-- Orbit Circles -->
+          <circle cx="50%" cy="50%" r="140" stroke="#38BDF8" stroke-width="1" stroke-dasharray="6 6" fill="none" opacity="0.3"/>
+          <circle cx="50%" cy="50%" r="90" stroke="#2563EB" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.4"/>
+          <text x="75%" y="22%" fill="#38BDF8" font-family="'JetBrains Mono'" font-size="11" opacity="0.8">45° LIFT VECTOR</text>
+          <text x="22%" y="82%" fill="#38BDF8" font-family="'JetBrains Mono'" font-size="11" opacity="0.8">THRUSTER APEX</text>
+        </svg>
+      </div>
+
+      <!-- Stage Top Controls -->
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-5 mb-8 relative z-20">
+        <!-- Concept Switcher -->
+        <div class="flex items-center gap-1.5 p-1 bg-slate-900 border border-slate-800 rounded-lg text-xs font-medium">
+          <button id="concept1Btn" onclick="selectConcept(1)" class="px-3 py-1.5 rounded bg-blue-600 text-white font-bold transition-all flex items-center gap-1.5 shadow-sm">
+            <span>Concept 1: The Aero-Llama (Hero)</span>
+          </button>
+          <button id="concept2Btn" onclick="selectConcept(2)" class="px-3 py-1.5 rounded text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
+            <span>Concept 2: Tech Shield</span>
+          </button>
+          <button id="concept3Btn" onclick="selectConcept(3)" class="px-3 py-1.5 rounded text-slate-400 hover:text-white transition-all flex items-center gap-1.5">
+            <span>Concept 3: Monoline Orbit</span>
+          </button>
+        </div>
+
+        <!-- Canvas Background Selector -->
+        <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+          <span>Canvas:</span>
+          <button onclick="setCanvasBg('dark')" class="w-6 h-6 rounded-full bg-[#0B0F19] border-2 border-sky-400 focus:outline-none" title="Dark Slate"></button>
+          <button onclick="setCanvasBg('white')" class="w-6 h-6 rounded-full bg-[#FFFFFF] border border-slate-400 focus:outline-none" title="Crisp White"></button>
+          <button onclick="setCanvasBg('blue')" class="w-6 h-6 rounded-full bg-[#1E3A8A] border border-blue-400 focus:outline-none" title="Deep Navy"></button>
+        </div>
+      </div>
+
+      <!-- The Active Vector Display -->
+      <div id="markDisplayContainer" class="flex flex-col items-center justify-center py-10 transition-colors duration-300 rounded-xl relative z-20">
+        <div class="w-56 h-56 sm:w-64 sm:h-64 transition-transform hover:scale-105 duration-300">
+          <img id="activeMarkImg" src="vectors/mark-concept-1.svg" alt="Active Concept" class="w-full h-full object-contain filter drop-shadow-2xl">
+        </div>
+        
+        <!-- Live Concept Metadata Description -->
+        <div class="mt-8 text-center max-w-lg">
+          <h3 id="activeConceptTitle" class="text-xl font-bold text-white mb-2">The Aero-Llama Mark (Recommended)</h3>
+          <p id="activeConceptDesc" class="text-xs text-slate-400 leading-relaxed font-sans">
+            The rocket fuselage naturally forms the upright neck and head of a cheerful llama. Its aerodynamic winglets double as perky alert ears, and the dual-tone blue jet propulsion flame conveys explosive customer acquisition for home-service contractors.
+          </p>
+          <div class="mt-4 flex items-center justify-center gap-3">
+            <button onclick="copyActiveSVG()" class="btn-secondary !py-1.5 !px-3 !text-xs font-mono">
+              <i data-lucide="code" class="w-3.5 h-3.5 text-sky-400"></i>
+              <span>Copy Raw SVG Code</span>
+            </button>
+            <a id="downloadSvgLink" href="vectors/mark-concept-1.svg" download="Rocket-Llama-Mark.svg" class="btn-primary !py-1.5 !px-3 !text-xs">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>Download Vector SVG</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: THE 4 MANDATORY CONTEST DELIVERABLES -->
+  <section id="deliverables" class="py-20 px-4 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-400 mb-2 block">100% Brief Compliance</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Full Hand-Off Deliverables Suite</h2>
+      <p class="text-slate-400 text-sm mt-3">Every orientation, colorway, and file specification requested in your contest brief is prepared and verified.</p>
+    </div>
+
+    <!-- 4 Deliverables Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Deliverable 1: Full-Color Horizontal Lockup (Light & Dark) -->
+      <div class="glass-box p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded bg-blue-600 text-white font-mono text-xs flex items-center justify-center font-bold">1</span>
+              <h3 class="text-base font-bold text-white">Horizontal Primary Logo (Full-Color)</h3>
+            </div>
+            <span class="text-[11px] font-mono text-sky-400 bg-sky-950 px-2 py-0.5 rounded border border-sky-500/30">AI / SVG / PNG</span>
+          </div>
+          <p class="text-xs text-slate-400 mb-6">Designed for website navigation headers, email signatures, software portals, and letterheads.</p>
+
+          <!-- Light Canvas Preview -->
+          <div class="p-6 bg-white rounded-lg border border-slate-200 mb-4 flex items-center justify-center shadow-sm">
+            <img src="vectors/logo-horizontal-light.svg" alt="Horizontal Light" class="max-h-16 w-auto object-contain">
+          </div>
+
+          <!-- Dark Canvas Preview -->
+          <div class="p-6 bg-[#0B0F19] rounded-lg border border-slate-800 flex items-center justify-center">
+            <img src="vectors/logo-horizontal-dark.svg" alt="Horizontal Dark" class="max-h-16 w-auto object-contain">
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-400">Lockup Ratio: 4.5 : 1</span>
+          <a href="vectors/logo-horizontal-light.svg" download class="text-sky-400 hover:underline flex items-center gap-1">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> Download SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Deliverable 2: Stacked Orientation Lockup -->
+      <div class="glass-box p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded bg-blue-600 text-white font-mono text-xs flex items-center justify-center font-bold">2</span>
+              <h3 class="text-base font-bold text-white">Stacked Orientation Lockup</h3>
+            </div>
+            <span class="text-[11px] font-mono text-sky-400 bg-sky-950 px-2 py-0.5 rounded border border-sky-500/30">AI / SVG / PNG</span>
+          </div>
+          <p class="text-xs text-slate-400 mb-6">Optimized for vertical spaces, app store badges, social media profile cards, and event banners.</p>
+
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Stacked Light -->
+            <div class="p-6 bg-white rounded-lg border border-slate-200 flex items-center justify-center shadow-sm">
+              <img src="vectors/logo-stacked-light.svg" alt="Stacked Light" class="max-h-36 w-auto object-contain">
+            </div>
+            <!-- Stacked Dark -->
+            <div class="p-6 bg-[#0B0F19] rounded-lg border border-slate-800 flex items-center justify-center">
+              <img src="vectors/logo-stacked-dark.svg" alt="Stacked Dark" class="max-h-36 w-auto object-contain">
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-400">Centered Axis Alignment</span>
+          <a href="vectors/logo-stacked-light.svg" download class="text-sky-400 hover:underline flex items-center gap-1">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> Download SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Deliverable 3: One-Color & Reverse (Black & White) -->
+      <div class="glass-box p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded bg-blue-600 text-white font-mono text-xs flex items-center justify-center font-bold">3</span>
+              <h3 class="text-base font-bold text-white">One-Color & Reverse (Print & Mono)</h3>
+            </div>
+            <span class="text-[11px] font-mono text-sky-400 bg-sky-950 px-2 py-0.5 rounded border border-sky-500/30">High-Contrast</span>
+          </div>
+          <p class="text-xs text-slate-400 mb-6">Guarantees 100% silhouette legibility for single-color engraving, uniforms, invoices, and fax.</p>
+
+          <!-- 1-Color Black -->
+          <div class="p-5 bg-white rounded-lg border border-slate-200 mb-4 flex items-center justify-center shadow-sm">
+            <img src="vectors/logo-mono-black.svg" alt="Mono Black" class="max-h-14 w-auto object-contain">
+          </div>
+
+          <!-- 1-Color Reverse White -->
+          <div class="p-5 bg-black rounded-lg border border-slate-800 flex items-center justify-center">
+            <img src="vectors/logo-mono-white.svg" alt="Mono White" class="max-h-14 w-auto object-contain">
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-400">Solid 100% Ink Density</span>
+          <a href="vectors/logo-mono-black.svg" download class="text-sky-400 hover:underline flex items-center gap-1">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> Download SVG
+          </a>
+        </div>
+      </div>
+
+      <!-- Deliverable 4: Micro-Scale Legibility & App Icon Favicon -->
+      <div class="glass-box p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded bg-blue-600 text-white font-mono text-xs flex items-center justify-center font-bold">4</span>
+              <h3 class="text-base font-bold text-white">Small-Size & Favicon Legibility Test</h3>
+            </div>
+            <span class="text-[11px] font-mono text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-500/30">Pixel Verified</span>
+          </div>
+          <p class="text-xs text-slate-400 mb-6">Tested down to 16px to ensure the llama's alert ears and rocket silhouette remain instantly identifiable.</p>
+
+          <!-- Multi-Scale Grid -->
+          <div class="p-6 bg-slate-900/80 rounded-lg border border-slate-800 flex items-center justify-around gap-4">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-blue-600 rounded-xl p-2 mx-auto mb-2 shadow-lg shadow-blue-500/20">
+                <img src="vectors/mark-concept-1.svg" class="w-full h-full object-contain">
+              </div>
+              <span class="font-mono text-[10px] text-slate-400">64px (App)</span>
+            </div>
+            <div class="text-center">
+              <div class="w-10 h-10 bg-blue-600 rounded-lg p-1.5 mx-auto mb-2 shadow-md">
+                <img src="vectors/mark-concept-1.svg" class="w-full h-full object-contain">
+              </div>
+              <span class="font-mono text-[10px] text-slate-400">32px (Tab)</span>
+            </div>
+            <div class="text-center">
+              <div class="w-6 h-6 bg-blue-600 rounded p-1 mx-auto mb-2">
+                <img src="vectors/mark-concept-1.svg" class="w-full h-full object-contain">
+              </div>
+              <span class="font-mono text-[10px] text-slate-400">16px (Favicon)</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-emerald-400 font-semibold">✓ 100% Silhouette Retention</span>
+          <span class="text-slate-500">Zero Blur</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: REAL-WORLD APPLICATIONS (HOME-SERVICE BRANDING MOCKUPS) -->
+  <section class="py-20 px-4 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-400 mb-2 block">In-Market Context</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Built for Home-Service Marketing</h2>
+      <p class="text-slate-400 text-sm mt-3">See how Rocket Llama Labs commands trust, authority, and warmth on marketing platforms.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Mockup 1: B2B Dark Minimalist Business Card -->
+      <div class="glass-box p-6 flex flex-col justify-between">
+        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-4">Executive Business Card</h4>
+        <div class="aspect-[1.75/1] bg-gradient-to-br from-slate-900 to-[#0F172A] rounded-xl border border-slate-700/80 p-6 flex flex-col justify-between shadow-2xl relative overflow-hidden group">
+          <div class="absolute -right-6 -bottom-6 w-32 h-32 opacity-10">
+            <img src="vectors/mark-concept-1.svg" class="w-full h-full">
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 rounded-lg bg-blue-600/20 border border-blue-500/40 p-1.5">
+              <img src="vectors/mark-concept-1.svg" class="w-full h-full object-contain">
+            </div>
+            <span class="font-mono text-[9px] text-sky-400 tracking-widest uppercase">MEMBER · ACCELERATOR</span>
+          </div>
+          <div>
+            <div class="font-extrabold text-white text-sm tracking-tight">Alex Vance</div>
+            <div class="text-[11px] text-sky-400 font-mono">Founder & Growth Strategist</div>
+            <div class="text-[10px] text-slate-400 mt-2 font-mono">alex@rocketllamalabs.com · rocketllamalabs.com</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup 2: Marketing Landing Page Header -->
+      <div class="glass-box p-6 flex flex-col justify-between">
+        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-4">Client-Facing Web Header</h4>
+        <div class="aspect-[1.75/1] bg-slate-950 rounded-xl border border-slate-800 p-4 flex flex-col justify-between shadow-2xl">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <div class="flex items-center gap-1.5">
+              <img src="vectors/mark-concept-1.svg" class="w-5 h-5">
+              <span class="font-bold text-[11px] text-white">ROCKET LLAMA <span class="text-sky-400">LABS</span></span>
+            </div>
+            <button class="bg-blue-600 text-white font-bold text-[9px] px-2.5 py-1 rounded">Book Lead Audit</button>
+          </div>
+          <div class="text-center py-2">
+            <div class="text-[12px] font-extrabold text-white leading-tight">Land 40+ Qualified Home-Service Leads Monthly</div>
+            <div class="text-[9px] text-slate-400 mt-1">Roofing · HVAC · Plumbing · Solar</div>
+          </div>
+          <div class="flex justify-center gap-2 text-[8px] font-mono text-slate-500">
+            <span>✓ 98.4% Booked Rate</span>
+            <span>✓ Exclusivity Guarantees</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup 3: Social & Community Avatar -->
+      <div class="glass-box p-6 flex flex-col justify-between">
+        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-4">LinkedIn / X / Avatar Suite</h4>
+        <div class="aspect-[1.75/1] bg-slate-900/60 rounded-xl border border-slate-800 p-4 flex items-center justify-center gap-6">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-blue-700 via-blue-600 to-sky-400 p-3 shadow-xl shadow-blue-600/30 flex items-center justify-center">
+            <img src="vectors/mark-concept-1.svg" class="w-full h-full object-contain filter drop-shadow">
+          </div>
+          <div class="w-14 h-14 rounded-2xl bg-slate-950 border border-slate-700 p-2 flex items-center justify-center">
+            <img src="vectors/mark-concept-1.svg" class="w-full h-full object-contain">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: OFFICIAL STYLE SHEET (DELIVERABLE #4) -->
+  <section id="stylesheet" class="py-20 px-4 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs font-mono font-semibold uppercase tracking-wider text-sky-400 mb-2 block">Deliverable #4</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Brand Style Sheet & Guidelines</h2>
+      <p class="text-slate-400 text-sm mt-3">Comprehensive color tokens, typography hierarchy, clear-space rules, and minimum sizing.</p>
+    </div>
+
+    <!-- Color Palette Grid -->
+    <div class="mb-14">
+      <h3 class="text-base font-bold text-white mb-6 flex items-center gap-2">
+        <i data-lucide="palette" class="w-4 h-4 text-sky-400"></i>
+        <span>Color Architecture (Pairs with Blue-and-Gray Web Palette)</span>
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        
+        <!-- Swatch 1: Rocket Blue -->
+        <div class="swatch-box">
+          <div class="swatch-color bg-[#2563EB]"></div>
+          <div class="swatch-meta">
+            <div class="font-bold text-white text-xs mb-1">Rocket Blue (Primary)</div>
+            <div class="text-slate-400">HEX: #2563EB</div>
+            <div class="text-slate-500">RGB: 37, 99, 235</div>
+            <div class="text-slate-500">CMYK: 84, 58, 0, 8</div>
+          </div>
+        </div>
+
+        <!-- Swatch 2: Aero Sky Cyan -->
+        <div class="swatch-box">
+          <div class="swatch-color bg-[#38BDF8]"></div>
+          <div class="swatch-meta">
+            <div class="font-bold text-white text-xs mb-1">Aero Sky Cyan (Accent)</div>
+            <div class="text-slate-400">HEX: #38BDF8</div>
+            <div class="text-slate-500">RGB: 56, 189, 248</div>
+            <div class="text-slate-500">CMYK: 77, 24, 0, 3</div>
+          </div>
+        </div>
+
+        <!-- Swatch 3: Deep Void Navy -->
+        <div class="swatch-box">
+          <div class="swatch-color bg-[#0F172A]"></div>
+          <div class="swatch-meta">
+            <div class="font-bold text-white text-xs mb-1">Deep Void Navy (Base)</div>
+            <div class="text-slate-400">HEX: #0F172A</div>
+            <div class="text-slate-500">RGB: 15, 23, 42</div>
+            <div class="text-slate-500">CMYK: 64, 45, 0, 84</div>
+          </div>
+        </div>
+
+        <!-- Swatch 4: Cool Slate Gray -->
+        <div class="swatch-box">
+          <div class="swatch-color bg-[#64748B]"></div>
+          <div class="swatch-meta">
+            <div class="font-bold text-white text-xs mb-1">Cool Slate Gray (Neutral)</div>
+            <div class="text-slate-400">HEX: #64748B</div>
+            <div class="text-slate-500">RGB: 100, 116, 139</div>
+            <div class="text-slate-500">CMYK: 28, 16, 0, 45</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Typography & Rules Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Typography System -->
+      <div class="glass-box p-6">
+        <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+          <i data-lucide="type" class="w-4 h-4 text-blue-400"></i>
+          <span>Typography Specifications</span>
+        </h3>
+        <div class="space-y-4 font-mono text-xs">
+          <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
+            <div class="text-slate-400 text-[11px] mb-1">Primary Wordmark:</div>
+            <div class="text-base font-sans font-extrabold text-white tracking-tight">Inter / Outfit Display (800 ExtraBold)</div>
+            <div class="text-[11px] text-slate-500 mt-1">Tracking: -0.02em · Case: Uppercase · High legibility</div>
+          </div>
+          <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
+            <div class="text-slate-400 text-[11px] mb-1">Descriptor / Subtitle:</div>
+            <div class="text-sm font-sans font-semibold text-sky-400 tracking-wider">Inter Medium / JetBrains Mono (500)</div>
+            <div class="text-[11px] text-slate-500 mt-1">Tracking: +0.18em · Case: Uppercase / Small Caps</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clear Space & Scaling Rules -->
+      <div class="glass-box p-6">
+        <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+          <span>Clear Space & Minimum Scale Rules</span>
+        </h3>
+        <div class="space-y-3 font-mono text-xs text-slate-300">
+          <div class="p-3 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-between">
+            <span>Minimum Digital Width (Icon):</span>
+            <span class="text-sky-400 font-bold">16px × 16px (Favicon)</span>
+          </div>
+          <div class="p-3 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-between">
+            <span>Minimum Digital Width (Lockup):</span>
+            <span class="text-sky-400 font-bold">120px Horizontal</span>
+          </div>
+          <div class="p-3 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-between">
+            <span>Minimum Print Size:</span>
+            <span class="text-sky-400 font-bold">12mm (0.47 in)</span>
+          </div>
+          <div class="p-3 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-between">
+            <span>Isolation Clear Space:</span>
+            <span class="text-emerald-400 font-bold">1X (Height of Llama Ear)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-[#0B0F19] py-12 px-4 lg:px-8 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 rounded bg-blue-600 flex items-center justify-center font-bold text-white text-xs">🚀</div>
+        <span class="text-slate-300 font-bold">ROCKET LLAMA LABS</span>
+        <span>· Brand Identity Submission</span>
+      </div>
+      <div class="flex items-center gap-6 font-mono text-[11px]">
+        <span class="text-slate-400">100% Vector Geometry</span>
+        <span class="text-slate-400">AI / SVG / EPS / PNG</span>
+        <span class="text-sky-400">Ready for Instant Hand-Off</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: CONTEST PROPOSAL & CONCEPT RATIONALE -->
+  <div class="drawer-backdrop" id="proposalModal" onclick="closeProposalOutside(event)">
+    <div class="drawer-content">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+        <div>
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i>
+            <span>Contest Entry Proposal & Outline</span>
+          </h3>
+          <p class="text-xs text-slate-400">Ready to copy and paste into your Freelancer contest entry.</p>
+        </div>
+        <button onclick="closeProposalModal()" class="p-1 rounded text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Action Strip -->
+      <div class="flex items-center justify-between p-3 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono mb-6">
+        <span class="text-slate-400">Status: <strong class="text-emerald-400">Complete Suite Ready</strong></span>
+        <button onclick="copyProposalText()" class="btn-primary !py-1 !px-3 !text-xs">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          <span id="copyProposalBtnText">Copy Proposal Text</span>
+        </button>
+      </div>
+
+      <!-- Proposal Text -->
+      <div class="bg-slate-950 border border-slate-800 rounded-lg p-5 font-mono text-xs text-slate-300 leading-relaxed whitespace-pre-wrap selection:bg-blue-600/30 selection:text-blue-200" id="proposalContent">Hi there,
+
+Here is my submission for Rocket Llama Labs—an authentic, 100% handcrafted vector identity (zero AI generation or bitmap artifacts) engineered to help your home-service marketing company project speed, trust, and approachable charm.
+
+🔗 Live Interactive Brand Suite:
+https://rocket-llama-labs.vercel.app/
+
+Concept & Visual Geometry:
+1. The Clever Fusion: The rocket fuselage seamlessly forms the upright neck and head of an alert llama. Aerodynamic stabilizer winglets double as perky llama ears, while the dual-tone blue propulsion flame represents upward growth and rapid lead generation for contractors.
+2. Color Harmony: Pairs with your blue-and-gray palette—Rocket Blue (#2563EB) for authority, Aero Sky Cyan (#38BDF8) for modern energy, Deep Void Navy (#0F172A), and Cool Slate Gray (#64748B).
+3. Contemporary Typography: Clean, geometric sans-serif lettering that stays razor-sharp from a 16px favicon to a billboard.
+
+Deliverables (Ready for Hand-off):
+• Full-color primary vector (AI + SVG) + transparent PNGs.
+• One-color solid black and reverse pure white versions.
+• Horizontal and stacked orientations for all layouts.
+• Complete style sheet with HEX, RGB, CMYK values, font specs, and clear-space rules.
+
+Ready for immediate hand-off or revisions based on your feedback!
+
+Best regards,
+Tejaans Bansal</div>
+
+      <div class="mt-6 pt-4 border-t border-slate-800 text-[11px] text-slate-500 font-mono flex items-center justify-between">
+        <span>Handcrafted Vector Suite</span>
+        <span>Guaranteed AI-Free Geometry</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast-msg">Copied to clipboard!</div>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>

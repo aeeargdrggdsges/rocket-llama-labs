@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 120" width="100%" height="100%" fill="none">
+  <!-- ICON (1-Color Solid Black) -->
+  <g transform="translate(10, 10) scale(0.5)">
+    <!-- Exhaust Plume -->
+    <path d="M 68 132 C 55 145, 30 162, 28 178 C 42 172, 60 148, 74 138 Z" fill="#000000"/>
+    
+    <!-- Wings -->
+    <path d="M 60 120 L 40 142 C 38 144, 40 148, 44 147 L 76 138 Z" fill="#000000"/>
+    <path d="M 102 78 L 126 56 C 130 52, 134 56, 131 60 L 118 94 Z" fill="#000000"/>
+
+    <!-- Fuselage -->
+    <path d="
+      M 62 136
+      C 56 122, 62 104, 74 86
+      L 98 52
+      C 102 46, 108 42, 115 42
+      C 122 42, 128 47, 131 54
+      C 134 60, 132 68, 126 74
+      L 116 84
+      C 106 94, 98 110, 92 126
+      C 90 130, 86 133, 81 133
+      L 65 137
+      C 63 137, 62 137, 62 136 Z
+    " fill="#000000"/>
+
+    <!-- Ears -->
+    <path d="M 112 40 L 124 16 C 126 12, 131 14, 130 18 L 122 38 Z" fill="#000000"/>
+    <path d="M 118 44 L 136 20 C 138 16, 143 19, 141 24 L 127 48 Z" fill="#000000"/>
+
+    <!-- Negative Space Cutouts (Eye & Details) -->
+    <circle cx="121" cy="56" r="3.5" fill="#FFFFFF"/>
+    <path d="M 128 62 C 126 64, 123 65, 120 64" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M 82 108 L 94 92" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="125" y="62" font-family="'Inter', 'Outfit', sans-serif" font-weight="800" font-size="34" letter-spacing="-0.02em" fill="#000000">
+    ROCKET LLAMA
+  </text>
+  <rect x="420" y="38" width="82" height="28" rx="6" fill="#000000"/>
+  <text x="461" y="57" font-family="'Inter', 'JetBrains Mono', sans-serif" font-weight="700" font-size="14" letter-spacing="0.18em" fill="#FFFFFF" text-anchor="middle">
+    LABS
+  </text>
+  <text x="126" y="86" font-family="'Inter', sans-serif" font-weight="600" font-size="12" letter-spacing="0.14em" fill="#000000">
+    HOME-SERVICE GROWTH ENGINE
+  </text>
+</svg>

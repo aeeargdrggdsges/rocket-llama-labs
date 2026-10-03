@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Primary Gradient: Vibrant Electric Blue to Sky Cyan -->
+    <linearGradient id="rocketBlueGrad" x1="20" y1="180" x2="180" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="60%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+
+    <!-- Wing / Secondary Accent Gradient -->
+    <linearGradient id="wingGrad" x1="40" y1="160" x2="140" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+
+    <!-- Thruster Flame Gradient -->
+    <linearGradient id="flameGrad" x1="60" y1="140" x2="20" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="innerFlame" x1="60" y1="140" x2="35" y2="165" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+
+    <!-- Shadow for depth -->
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#2563EB" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Group: Angled 45 deg upward trajectory -->
+  <g filter="url(#subtleGlow)">
+    
+    <!-- Thruster Exhaust Particles / Trail -->
+    <circle cx="28" cy="172" r="3.5" fill="#38BDF8" opacity="0.6"/>
+    <circle cx="20" cy="182" r="2" fill="#38BDF8" opacity="0.4"/>
+    <circle cx="14" cy="190" r="1.2" fill="#38BDF8" opacity="0.3"/>
+
+    <!-- Exhaust Jet Flame -->
+    <path d="M 68 132 C 55 145, 30 162, 28 178 C 42 172, 60 148, 74 138 Z" fill="url(#flameGrad)" />
+    <!-- Inner High-Velocity Flame -->
+    <path d="M 69 133 C 60 142, 46 154, 42 165 C 51 161, 64 145, 73 137 Z" fill="url(#innerFlame)" opacity="0.9"/>
+
+    <!-- Left / Lower Rocket Stabilizer Wing -->
+    <path d="M 60 120 L 40 142 C 38 144, 40 148, 44 147 L 76 138 Z" fill="#1E293B"/>
+
+    <!-- Right / Upper Aerodynamic Wing -->
+    <path d="M 102 78 L 126 56 C 130 52, 134 56, 131 60 L 118 94 Z" fill="#1E40AF"/>
+
+    <!-- Main Fuselage: Seamless Fusion of Rocket Body & Elegant Llama Neck/Head -->
+    <path d="
+      M 62 136
+      C 56 122, 62 104, 74 86
+      L 98 52
+      C 102 46, 108 42, 115 42
+      C 122 42, 128 47, 131 54
+      C 134 60, 132 68, 126 74
+      L 116 84
+      C 106 94, 98 110, 92 126
+      C 90 130, 86 133, 81 133
+      L 65 137
+      C 63 137, 62 137, 62 136 Z
+    " fill="url(#rocketBlueGrad)"/>
+
+    <!-- Llama Alert Rocket-Fin Ears (Dual Ears at 45° Aerodynamic Trim) -->
+    <!-- Back Ear -->
+    <path d="M 112 40 L 124 16 C 126 12, 131 14, 130 18 L 122 38 Z" fill="#1D4ED8"/>
+    <!-- Front Ear -->
+    <path d="M 118 44 L 136 20 C 138 16, 143 19, 141 24 L 127 48 Z" fill="#38BDF8"/>
+
+    <!-- Stylized Eye / Capsule Observation Porthole -->
+    <circle cx="121" cy="56" r="4.5" fill="#0F172A"/>
+    <circle cx="122.5" cy="54.5" r="1.5" fill="#FFFFFF"/>
+
+    <!-- Muzzle / Nose Cone Accent Line -->
+    <path d="M 128 62 C 126 64, 123 65, 120 64" stroke="#0F172A" stroke-width="1.8" stroke-linecap="round"/>
+
+    <!-- Modern Rocket Decal / Lead Generation Arrow Accent -->
+    <path d="M 82 108 L 94 92" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+    <path d="M 88 116 L 100 100" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+  </g>
+</svg>
